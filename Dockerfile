@@ -1,13 +1,13 @@
 FROM debian:stable-slim
 
-ARG ARCHI_VER=4.8.1
-ARG COARCHI_VER=0.7.1.202102021056
+ARG ARCHI_VER=4.10.0
+ARG COARCHI_VER=0.9.2
 
 RUN apt update && \
     apt install -y wget unzip dbus xvfb libswt-gtk-4-java && \
-    wget -O "archi.tgz" --post-data="dl=Archi-Linux64-${ARCHI_VER}.tgz" "https://www.archimatetool.com/downloads/archi/" && \
+    wget -O "archi.tgz" "https://www.archimatetool.com/downloads/archi/archive/${ARCHI_VER}/Archi-Linux64-${ARCHI_VER}.tgz" && \
     tar zxf "archi.tgz" -C /opt/ && \
-    wget -O coarchi.zip "https://www.archimatetool.com/downloads/coarchi/org.archicontribs.modelrepository_${COARCHI_VER}.archiplugin" && \
+    wget -O coarchi.zip "https://www.archimatetool.com/downloads/coarchi/coArchi_${COARCHI_VER}.archiplugin" && \    
     mkdir -p ~/.archi4/dropins && \
     unzip coarchi.zip -d ~/.archi4/dropins && \
     rm archi.tgz coarchi.zip && \
