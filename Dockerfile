@@ -1,6 +1,6 @@
-FROM debian:stable-slim
+FROM eclipse-temurin:17-jdk
 
-ARG ARCHI_VER=4.10.0
+ARG ARCHI_VER=5.3.0
 ARG COARCHI_VER=0.9.2
 
 RUN apt update && \
